@@ -16,7 +16,8 @@ const BMICalculator = () => {
 
   const [bmi, setBmi] = useState();
   const calculate = () => {
-    const result = weight / (height * height);
+    const heightInMeters = height / 100;
+    const result = weight / (heightInMeters * heightInMeters);
     const roundResult = parseFloat(result.toFixed(2));
     setBmi(roundResult);
   };
@@ -59,7 +60,7 @@ const BMICalculator = () => {
           <div>
             <input
               type="number"
-              placeholder="Enter Height (Meter)"
+              placeholder="Enter Height (Cm)"
               value={height}
               onChange={onChangeHeight}
             />
